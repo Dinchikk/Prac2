@@ -1,6 +1,6 @@
-function [ res] = u1_0(t,y)
+function [ res] = u1_0(t,y,alpha)
     
-    alpha = 0.1;
+   
     if(y(4) < 0)
         res = 0;
     else
