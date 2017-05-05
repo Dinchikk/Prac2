@@ -1,13 +1,13 @@
 %%
 
 clear
-T = 1.7;
+T = 2;
 eps = 0.2;
-L = -2.5;
+L = -1;
 g = 9.8;
-k1 = 6;
-k2 = 8;
-alpha = 0.4;
+k1 = 8;
+k2 = 9;
+alpha = 0.1;
 
 J_min = 100000;
 
@@ -92,7 +92,7 @@ for(i = [2:1:(n-1)])
            u1_min =  u1_2;
            u2_min = ones(1 , max(size(X)));
            for(i2 = [1:max(size(X))])
-              u2_min(i2) = u2_1(t_time(i),X(i , :)); 
+              u2_min(i2) = u2_1(t_time(i),X(i , :),k1 , k2); 
            end
        end
            
@@ -140,7 +140,7 @@ for(i = [1:(n-1)])
            u1_min =  u1_2;
            u2_min = ones(1 , max(size(X)));
            for(i2 = [1:max(size(X))])
-              u2_min(i2) = u2_1(t_time(i),X(i , :)); 
+              u2_min(i2) = u2_1(t_time(i),X(i , :),k1 , k2); 
            end
        end
            
@@ -189,7 +189,7 @@ for(i = [1:n])
                u1_min =  u1_2;
                u2_min = ones(1 , max(size(X)));
                for(i2 = [1:max(size(X))])
-                  u2_min(i2) = u2_1(t_time(i),X(i , :)); 
+                  u2_min(i2) = u2_1(t_time(i),X(i , :),k1 , k2); 
                end
            end
 
@@ -238,7 +238,7 @@ for(i = [1:n])
                u1_min =  u1_2;
                u2_min = ones(1 , max(size(X)));
                for(i2 = [1:max(size(X))])
-                  u2_min(i2) = u2_1(t_time(i),X(i , :)); 
+                  u2_min(i2) = u2_1(t_time(i),X(i , :),k1 , k2); 
                end
            end
 
@@ -310,7 +310,7 @@ for(i = [1:n])
                u1_min =  u1_2;
                u2_min = ones(1 , max(size(X)));
                for(i2 = [1:max(size(X))])
-                  u2_min(i2) = u2_1(t_time(i),X(i , :)); 
+                  u2_min(i2) = u2_1(t_time(i),X(i , :),k1 , k2); 
                end
            end
 
@@ -356,7 +356,7 @@ for(i = [1:n])
                u1_min =  u1_2;
                u2_min = ones(1 , max(size(X)));
                for(i2 = [1:max(size(X))])
-                  u2_min(i2) = u2_1(t_time(i),X(i , :)); 
+                  u2_min(i2) = u2_1(t_time(i),X(i , :),k1 , k2); 
                end
            end
 
