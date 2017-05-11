@@ -1,13 +1,13 @@
 %%
 
 clear
-T = 2.1;
-eps = 0.1;
-L = -0.8;
-g = 9.8;
-k1 = 6.5;
-k2 = 8;
-alpha = 1;
+T = 5;
+eps = 0.2;
+L = -1.6;
+g = 8;
+k1 = 7;
+k2 = 9;
+alpha = 0.1;
 
 J_min = 100000;
 
@@ -15,7 +15,7 @@ n = 20;
 
 p = (k1*k1 + 2*k1 -4*g + 1);
 if(p < 0)
-    disp('err');
+    error('err:  p < 0')
 else
    p = p^0.5;
 end;
@@ -30,7 +30,7 @@ plot(-eps*ones(1 , 100),linspace(-eps , eps,100) , 'g');
 
 
 
-%% 
+%% 1
 
 n = 100;
 A = [0 1; -g -(1 + k1)];
@@ -56,7 +56,7 @@ if ( ( abs(x(end , 1)) < eps) && (abs(x(end , 2)) < eps) )
 end
 
 
-%% 
+%% 2 
 
 
 n = 20;
@@ -81,7 +81,7 @@ for(i = [2:1:(n-1)])
     if((abs(X(end , 1)) < eps) && (abs(X(end , 2)) < eps)) 
         u1_2 = ones(1 , max(size(X)));
         for(i2 = [1:max(size(X))])
-          u1_2(i2) = u1_0(t_time(i),X(i , :),alpha); 
+          u1_2(i2) = u1_0(t_time(i2),X(i2 , :),alpha); 
         end
         J_tmp = trapz(t_time , u1_2.^2);
        %disp(J_tmp);
@@ -104,7 +104,7 @@ for(i = [2:1:(n-1)])
     
 end
 
-%% 
+%% 3
 
 n = 20;
 t_star = linspace(0.01 , T , n);
@@ -141,7 +141,7 @@ for(i = [1:(n-1)])
            u1_min =  u1_2;
            u2_min = ones(1 , max(size(X)));
            for(i2 = [1:max(size(X))])
-              u2_min(i2) = u2_1(t_time(i),X(i , :),k1 , k2); 
+              u2_min(i2) = u2_1(t_time(i2),X(i2 , :),k1 , k2); 
            end
        end
            
@@ -152,7 +152,7 @@ for(i = [1:(n-1)])
 end
 
 
-%%
+%% 4
 
 n = 20;
 t_star = linspace(0.0001 , T , n);
@@ -168,7 +168,7 @@ for(i = [1:n])
 
         [t_time , X] = ode45(@(tau, x) A(tau , x) * x + f(tau , x) , linspace(0, T, 100), [L ; 0;psi1_0;psi2_0(j)]);
     
-        plot(X(:,1), X(:,2));
+        plot(X(:,1), X(:,2),'b');
         %disp(X(end , 1));
         %disp(X(end , 2));
      
@@ -177,7 +177,7 @@ for(i = [1:n])
         if((abs(X(end , 1)) < eps) && (abs(X(end , 2)) < eps))
              u1_2 = ones(1 , max(size(X)));
             for(i2 = [1:max(size(X))])
-                u1_2(i2) = u1_0(t_time(i),X(i , :),alpha); 
+                u1_2(i2) = u1_0(t_time(i2),X(i2 , :),alpha); 
             end
             J_tmp = trapz(t_time , u1_2.^2);
        
@@ -201,7 +201,7 @@ end
 
 
 
-%% 
+%% 5
 
 
 n = 20;
@@ -226,7 +226,7 @@ for(i = [1:n])
         if((abs(X(end , 1)) < eps) && (abs(X(end , 2)) < eps))
              u1_2 = ones(1 , max(size(X)));
             for(i2 = [1:max(size(X))])
-                u1_2(i2) = u1_0(t_time(i),X(i , :),alpha); 
+                u1_2(i2) = u1_0(t_time(i2),X(i2 , :),alpha); 
             end
             J_tmp = trapz(t_time , u1_2.^2);
        
@@ -249,7 +249,7 @@ end
 
 
 
-%%
+%% 6
 
 n = 100;
 A = [0 1; -g -(1 + k1)];
@@ -273,7 +273,7 @@ if ( ( abs(x(end , 1)) < eps) && (abs(x(end , 2)) < eps) )
 end
 
 
-%% 
+%% 7
 
 n = 20;
 t_star = linspace(0.01 , T , n);
@@ -298,7 +298,7 @@ for(i = [1:n])
         if((abs(X(end , 1)) < eps) && (abs(X(end , 2)) < eps))
              u1_2 = ones(1 , max(size(X)));
             for(i2 = [1:max(size(X))])
-                u1_2(i2) = u1_0(t_time(i),X(i , :),alpha); 
+                u1_2(i2) = u1_0(t_time(i2),X(i2 , :),alpha); 
             end
             J_tmp = trapz(t_time , u1_2.^2);
        
@@ -319,7 +319,7 @@ for(i = [1:n])
 end  
 
 
-%% 
+%% 8 
 
 n = 20;
 t_star = linspace(0.01 , T , n);
@@ -365,7 +365,7 @@ for(i = [1:n])
 end  
 
 
-%% 
+%%  
 
 ylabel('$$x_2$$','interpreter','latex','fontsize',15,'rotation',0);
 xlabel('$$x_1$$','interpreter','latex','fontsize',15);

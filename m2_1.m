@@ -4,24 +4,21 @@
 
 
 clear
-T = 2.1;
-eps = 0.1;
-L = -0.8;
-g = 9.8;
-k1 = 6.5;
-k2 = 8;
-alpha = 1;
+T = 2.4;
+eps = 0.2;
+L = -1.6;
+g = 8;
+k1 = 7;
+k2 = 9;
+alpha = 0.1;
 
 J_min = 100000;
 
-
-
-J_min = 100000;
 
 
 p = (k1*k1 + 2*k1 -4*g + 1);
 if(p < 0)
-    disp('err');
+    error('err:  p < 0')
 else
    p = p^0.5;
 end;
