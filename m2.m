@@ -30,7 +30,7 @@ plot(-eps*ones(1 , 100),linspace(-eps , eps,100) , 'g');
 
 
 
-%% 1
+%% 
 
 n = 100;
 A = [0 1; -g -(1 + k1)];
@@ -56,7 +56,7 @@ if ( ( abs(x(end , 1)) < eps) && (abs(x(end , 2)) < eps) )
 end
 
 
-%% 2 
+%% 
 
 
 n = 20;
@@ -104,7 +104,7 @@ for(i = [2:1:(n-1)])
     
 end
 
-%% 3
+%% 
 
 n = 20;
 t_star = linspace(0.01 , T , n);
@@ -152,7 +152,7 @@ for(i = [1:(n-1)])
 end
 
 
-%% 4
+%% 
 
 n = 20;
 t_star = linspace(0.0001 , T , n);
@@ -201,7 +201,7 @@ end
 
 
 
-%% 5
+%% 
 
 
 n = 20;
@@ -249,7 +249,7 @@ end
 
 
 
-%% 6
+%% 
 
 n = 100;
 A = [0 1; -g -(1 + k1)];
@@ -273,7 +273,7 @@ if ( ( abs(x(end , 1)) < eps) && (abs(x(end , 2)) < eps) )
 end
 
 
-%% 7
+%% 
 
 n = 20;
 t_star = linspace(0.01 , T , n);
@@ -319,7 +319,7 @@ for(i = [1:n])
 end  
 
 
-%% 8 
+%% 
 
 n = 20;
 t_star = linspace(0.01 , T , n);
